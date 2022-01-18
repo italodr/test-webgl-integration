@@ -14,6 +14,7 @@ const section = {
 
 // markup
 const IndexPage = () => {
+  console.log('Index page created');
   return (
     <main style={pageStyles}>
       <title>Home Page</title>
