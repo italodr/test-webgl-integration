@@ -24538,6 +24538,7 @@ console.log('script works');
       init_three_module();
       init_three_module();
       init_Globals();
+      console.log('Section called');
       Section = class {
         constructor(dom) {
           this.active = false;
@@ -24553,6 +24554,7 @@ console.log('script works');
             position: "",
             image: ""
           };
+          console.log('The element', this.dom)
           if (this.dom.hasAttribute("webgl-color-1"))
             this.params.color1 = this.dom.getAttribute("webgl-color-1");
           if (this.dom.hasAttribute("webgl-color-2"))
@@ -24561,6 +24563,7 @@ console.log('script works');
             this.params.position = this.dom.getAttribute("webgl-window");
           if (this.dom.hasAttribute("webgl-image"))
             this.params.image = this.dom.getAttribute("webgl-image");
+          console.log('The element params', this.params)
           this.refresh();
         }
         refresh() {
@@ -24619,6 +24622,7 @@ console.log('script works');
       init_three_module();
       init_Section();
       init_Globals();
+      console.log('App called')
       App = class extends WebGLSketch {
         constructor() {
           super(window.innerWidth, window.innerHeight, {
@@ -24634,6 +24638,8 @@ console.log('script works');
           for (const section of sections) {
             this.sections.push(new Section(section));
           }
+          console.log('Sections list', sections);
+          console.log('Generated Sections list', this.sections);
           this.renderer.setClearColor(16777215, 1);
           document.body.appendChild(this.domElement);
           this.domElement.style.position = "fixed";
