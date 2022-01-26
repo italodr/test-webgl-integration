@@ -26,7 +26,13 @@ const IndexPage = () => {
   return (
     <main style={pageStyles}>
       <title>Home Page</title>
-      <section style={section}></section>
+      <section style={section}>
+        <img
+          src='https://www-backend-pre.kidsandus.com/sites/default/files/styles/original/public/2021-06/5-banner_1.png?itok=4NMZBYeQ'
+          alt=''
+          width='400'
+        />
+      </section>
       <section
         webgl-dev='false'
         webgl='true'
