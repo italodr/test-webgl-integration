@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect } from 'react';
+import { Link, navigate } from 'gatsby';
 
-// styles
 const pageStyles = {
   color: '#232129',
   padding: 96,
@@ -13,7 +13,6 @@ const section = {
   position: 'relative'
 };
 
-// markup
 const IndexPage = () => {
   useEffect(() => {
     const script = document.createElement('script');
@@ -23,35 +22,51 @@ const IndexPage = () => {
     document.body.appendChild(script);
   }, []);
 
+  const goTo = url => navigate(url);
+
   return (
     <main style={pageStyles}>
       <title>Home Page</title>
-      <section style={section}>
-        <img
-          src='https://www-backend-pre.kidsandus.com/sites/default/files/styles/original/public/2021-06/5-banner_1.png?itok=4NMZBYeQ'
-          alt=''
-          width='400'
-        />
+      <section>
+        <Link to={'/sample'}>Sample page (Gatsby Link)</Link>
+        <br />
+        <button onClick={() => goTo('/sample')}>Sample page (Gatsby navigate method)</button>
+        <br />
+        <a href={'/sample'}>Sample page (Regular Link)</a>
+        <br />
+        <br />
       </section>
       <section
-        webgl-dev='false'
-        webgl='true'
-        webgl-particles='false'
-        webgl-color-1='#5923d9'
-        webgl-color-2='#b223d9'
-        webgl-color-3='#d92366'
+        data-webgl-particles='true'
+        data-webgl-position='left'
+        data-webgl-nurbs-mirror='true'
+        data-webgl-dev='true'
+        data-webgl='true'
+        data-webgl-color-1='#e2647d'
+        data-webgl-color-2='#f9ad65'
+        data-webgl-color-3='#74e1ac'
+        data-webgl-image='https://www-pre-drupal.kidsandus.com/sites/default/files/styles/original_webp/public/2022-01/Billboard.png.webp?itok=y3GxuAb2'
         style={section}></section>
+      {/* <section
+        data-webgl-dev='false'
+        data-webgl='true'
+        data-webgl-particles='true'
+        data-webgl-nurbs-mirror='true'
+        data-webgl-color-1='#e2647d'
+        data-webgl-color-2='#f9ad65'
+        data-webgl-color-3='#74e1ac'
+        data-webgl-position='left'
+        data-webgl-image='https://www-backend-pre.kidsandus.com/sites/default/files/styles/original/public/2021-06/5-banner_1.png?itok=4NMZBYeQ'
+        style={section}></section> */}
       <section style={section}></section>
-      <section
-        webgl-dev='false'
-        webgl='true'
-        webgl-particles='true'
-        webgl-color-1='#e2647d'
-        webgl-color-2='#f9ad65'
-        webgl-color-3='#74e1ac'
-        webgl-position='left'
-        webgl-image='https://www-backend-pre.kidsandus.com/sites/default/files/styles/original/public/2021-06/5-banner_1.png?itok=4NMZBYeQ'
-        style={section}></section>
+      {/* <section
+        data-webgl-dev='false'
+        data-webgl='true'
+        data-webgl-particles='false'
+        data-webgl-color-1='#5923d9'
+        data-webgl-color-2='#b223d9'
+        data-webgl-color-3='#d92366'
+        style={section}></section> */}
     </main>
   );
 };
