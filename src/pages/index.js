@@ -22,17 +22,15 @@ const IndexPage = () => {
     document.body.appendChild(script);
   }, []);
 
-  const goTo = url => navigate(url);
-
   return (
     <main style={pageStyles}>
       <title>Home Page</title>
       <section>
-        <Link to={'/sample'}>Sample page (Gatsby Link)</Link>
+        <Link to={'/sample'}>Link to page using Gatsby Link component</Link>
         <br />
-        <button onClick={() => goTo('/sample')}>Sample page (Gatsby navigate method)</button>
+        <div onClick={() => navigate('/sample')}>Link to page using Gatsby navigate method</div>
         <br />
-        <a href={'/sample'}>Sample page (Regular Link)</a>
+        <a href={'/sample'}>Link to page using HTML a tag</a>
         <br />
         <br />
       </section>
