@@ -26,13 +26,19 @@ const IndexPage = () => {
     <main style={pageStyles}>
       <title>Home Page</title>
       <section>
-        <Link to={'/sample'}>Link to page using Gatsby Link component</Link>
-        <br />
-        <div onClick={() => navigate('/sample')}>Link to page using Gatsby navigate method</div>
-        <br />
-        <a href={'/sample'}>Link to page using HTML a tag</a>
-        <br />
-        <br />
+        <ul style={{ padding: '0 0 3rem' }}>
+          <li>
+            <Link to={'/sample'}>Link to page using Gatsby Link component</Link>
+          </li>
+          <li>
+            <a href='#' onClick={() => navigate('/sample')}>
+              Link to page using Gatsby navigate method
+            </a>
+          </li>
+          <li>
+            <a href={'/sample'}>Link to page using HTML a tag</a>
+          </li>
+        </ul>
       </section>
       <section
         data-webgl-particles='true'
