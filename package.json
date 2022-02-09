@@ -8,13 +8,14 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "develop": "gatsby develop --https",
+    "start": "gatsby develop --https",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@runroom/purejs": "^3.1.1",
     "gatsby": "^4.5.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
