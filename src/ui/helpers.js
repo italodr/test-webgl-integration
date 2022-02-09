@@ -10,6 +10,9 @@ const getWebglScript = () => {
   if (window.matchMedia(`(min-width: 960px)`).matches) {
     console.log('webgl: window size matches');
     dispatchWebglEvent('build');
+  } else {
+    console.log("webgl: window size doesn't match");
+    dispatchWebglEvent('destroy');
   }
 
   window.onresize = getWebglScript;
