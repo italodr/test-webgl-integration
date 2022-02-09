@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useEffect } from 'react';
+import Head from 'react-helmet';
 import { Link, navigate } from 'gatsby';
 
 import { getWebglScript } from '../ui/helpers';
@@ -16,16 +17,23 @@ const section = {
 };
 
 const IndexPage = () => {
-  useEffect(getWebglScript, []);
-
   useEffect(() => {
-    window.addEventListener('webgl:build', () => console.log('Event: Listen to build'));
-    window.addEventListener('webgl:destroy', () => console.log('Event: Listen to destroy'));
+    window.addEventListener('webgl:build', () =>
+      console.log('Event: Listening to webgl:build Event')
+    );
+    window.addEventListener('webgl:destroy', () =>
+      console.log('Event: Listening to webgl:destroy Event')
+    );
   }, []);
+
+  useEffect(getWebglScript, []);
 
   return (
     <main style={pageStyles}>
-      <title>Home Page</title>
+      <Head>
+        <title>Home Page</title>
+        <script src='/app.js' type='module' async></script>
+      </Head>
       <section>
         <ul style={{ padding: '0 0 3rem' }}>
           <li>
