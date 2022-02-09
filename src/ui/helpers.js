@@ -1,5 +1,3 @@
-import events from '@runroom/purejs/lib/events';
-
 const getMatchMedia = () => window.matchMedia(`(min-width: 960px)`).matches;
 
 const dispatchWebglEvent = type => {
@@ -8,7 +6,9 @@ const dispatchWebglEvent = type => {
   window.dispatchEvent(event);
 };
 
-const getWebglScript = () => {
+const getWebglScript = async () => {
+  const events = await import('@runroom/purejs/lib/events');
+
   console.log('webgl: called');
   const windowSizeIsTrue = getMatchMedia('medium');
   const webglScriptExists = document.getElementById('webgl-script');
@@ -31,7 +31,7 @@ const getWebglScript = () => {
     dispatchWebglEvent('destroy');
   }
 
-  events.onResizeWidth(getWebglScript);
+  events.default.onResizeWidth(getWebglScript);
 
   return () => {
     console.log('webgl: unmounting');
